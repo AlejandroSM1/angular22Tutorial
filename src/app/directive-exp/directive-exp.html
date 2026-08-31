@@ -1,0 +1,52 @@
+<div class="row">
+    <div class="col-3">
+        <div class="p-4" [ngClass]="divClassName">
+            Div 1
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="p-4" [ngClass]="isCheckboxActive == true ? 'bg-primary' : 'bg-secondary'">
+            Div 2
+        </div>
+    </div>
+    <div class="col-3 mt-2">
+       <input class="form-control form-control-sm" [(ngModel)]="mySentence" type="text" placeholder="Escribe algo...">
+       <h3 [ngClass]="mySentence.length >  5 ? 'text-danger' : 'text-success'">
+        {{mySentence.length >  5 ? 'Texto inválido' : 'Texto válido'}}</h3>
+       <h3 [ngClass]="isTextValid ? 'text-success' : 'text-danger'">
+        {{isTextValid ? 'Texto válido (btn)' : 'Texto inválido (btn)'}}</h3>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-3">
+        <button class="btn btn-sm btn-success mx-2" (click)="addDivClass('bg-success')">Exito</button>
+        <button class="btn btn-sm btn-danger mx-2" (click)="addDivClass('bg-danger')">Peligro</button>
+    </div>
+    <div class="col-3">
+        <input type="checkbox" class="form-check" [(ngModel)]="isCheckboxActive"> {{isCheckboxActive}}
+    </div>
+    <div class="col-3">
+        <button class="btn btn-sm btn-primary mx-2" (click)="checkCharLength()" >Revisar texto</button>
+    </div>
+</div>
+<hr>
+<hr>
+<div class="row">
+    <div class="col-3" [ngStyle]="{'background-color': inputColorValue}">
+       CSS Dinamico
+    </div>
+    <div class="col-3" [ngStyle]="divFigure">
+        divFigure
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-3">
+       <input type="color" class="form-control form-control-sm" [(ngModel)]="inputColorValue">
+    </div>
+    <div class="col-3">
+        <button class="btn btn-sm btn-secondary" (click)="changeFigure('circle')">Circle</button>
+        <button class="btn btn-sm btn-secondary" (click)="changeFigure('square')">Square</button>
+    </div>
+</div>
