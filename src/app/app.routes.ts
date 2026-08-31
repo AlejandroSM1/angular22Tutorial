@@ -7,6 +7,7 @@ import { ControlFlow } from './control-flow/control-flow';
 import { TemForm } from './components/tem-form/tem-form';
 import { ReactiveForm } from './components/reactive-form/reactive-form';
 import { SignalBasic } from './components/signal-basic/signal-basic';
+import { SignalForm } from './components/signal-form/signal-form';
 
 export const routes: Routes = [
     {
@@ -41,6 +42,10 @@ export const routes: Routes = [
     {
         path:'signal-basic',
         component: SignalBasic
+    },
+    {
+        path:'signal-form',
+        component: SignalForm
     },
     {
         path:'**',
