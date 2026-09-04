@@ -1,0 +1,144 @@
+<div class="row">
+  <div class="col-8">
+    <div class="card">
+      <div class="card-header bg-warning text-bg-warning text-center">
+        <div class="card-title"><strong>CLIENT INFORMATION</strong></div>
+      </div>
+      <div class="card-body">
+        <table class="table table-responsive table-hover table-striped table-sm">
+          <thead>
+            <th>Client No. </th>
+            <!-- <th>Logo</th> -->
+            <th>Client Name</th>
+            <th>Business Name</th>
+            <th>Contact Person</th>
+            <th>Contact No</th>
+            <th>Email</th>
+            <th>Registration Date</th>
+            <th>Action</th>
+          </thead>
+          <tbody>
+            @for (item of clientList(); track $index) {
+              <tr class="align-middle">
+                <td>{{ $index + 1 }}</td>
+                <!-- <td><img [src]="item.logo" alt="Logo" class="img-fluid" style="max-width: 50px; max-height: 50px;"></td> -->
+                <td>{{ item.clientName }}</td>
+                <td>{{ item.businessName }}</td>
+                <td>{{ item.contactPerson }}</td>
+                <td>{{ item.contactNo }}</td>
+                <td>{{ item.email }}</td>
+                <td>{{ item.createdDate }}</td>
+                <td>
+                  <button class="btn btn-sm btn-warning" (click)="onEditClient(item)">Edit</button>
+                  <button class="btn btn-sm btn-danger mx-1" (click)="onDeleteClient(item.clientId)">Delete</button>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="col-4">
+    <div class="card">
+      <div class="card-header bg-primary text-bg-primary text-center">
+        <div class="card-title"><strong>ADD CLIENT</strong></div>
+      </div>
+      <div class="card-body">
+        <form>
+            <div class="row">
+                <div class="col-6">
+                    <div class="mb-3">
+                        <label for="clientName" class="form-label">Client Name</label>
+                        <input
+                        type="text"
+                        class="form-control form-control-sm"
+                        [(ngModel)]="newClientObj.clientName" name="clientName"
+                        placeholder="Enter client name"
+                        />
+                    </div>
+                    <div class="mb-3">
+                        <label for="businessName" class="form-label">Business Name</label>
+                        <input
+                        type="text"
+                        class="form-control form-control-sm"
+                        [(ngModel)]="newClientObj.businessName" name="businessName"
+                        placeholder="Enter business name"
+                        />
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="mb-3">
+                        <label for="contactPerson" class="form-label">Contact Person</label>
+                        <input
+                        type="text"
+                        class="form-control form-control-sm"
+                        [(ngModel)]="newClientObj.contactPerson" name="contactPerson"
+                        placeholder="Enter contact person"
+                        />
+                    </div>
+                    <div class="mb-3">
+                        <label for="contactNo" class="form-label">Contact No</label>
+                        <input
+                        type="text"
+                        class="form-control form-control-sm"
+                        [(ngModel)]="newClientObj.contactNo" name="contactNo"
+                        placeholder="Enter contact number"
+                        />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="mb-3">
+                        <label for="altContactNo" class="form-label">Alternate Contact No</label>
+                        <input
+                        type="text"
+                        class="form-control form-control-sm"
+                        [(ngModel)]="newClientObj.altContactNo" name="altContactNo"
+                        placeholder="Enter alternate contact number"
+                        />
+                    </div>
+                    <div class="mb-3">
+                        <label for="emailId" class="form-label">Email</label>
+                        <input
+                        type="email"
+                        class="form-control form-control-sm"
+                        [(ngModel)]="newClientObj.email" name="email"
+                        placeholder="Enter email address"
+                        />
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="mb-3">
+                        <label for="logo" class="form-label">Logo</label>
+                        <input
+                        type="text"
+                        class="form-control form-control-sm"
+                        [(ngModel)]="newClientObj.logo" name="logo"
+                        placeholder="Enter logo URL"
+                        />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                @if(this.newClientObj.clientId == 0){
+                    <div class="col-4">
+                    <button type="button" (click)="onSaveClient()" class="btn btn-success">Add Client</button>
+                </div>
+                }
+                @else{
+                    <div class="col-4">
+                    <button type="button" (click)="onUpdateClient()" class="btn btn-primary">Update Client</button>
+                </div>
+                }
+                
+                <div class="col-4">
+                    <button type="reset" class="btn btn-secondary">Reset</button>
+                </div>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
