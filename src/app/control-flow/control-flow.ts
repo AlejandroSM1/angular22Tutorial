@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Master } from '../services/master';
 
 @Component({
   selector: 'app-control-flow',
@@ -21,7 +22,17 @@ export class ControlFlow {
   ]
   selectedStudentId = 0;
 
+  masterService = inject(Master);
+
+  orgininalCardNumber = "1234567890123456";
+
+  formatedCardNumber : string = this.masterService.getFormatedCardNumber(this.orgininalCardNumber);
+
   toggleDiv1(){
     this.isDivVisible = !this.isDivVisible;
+  }
+
+  storeLoggedData() {
+    this.masterService.loggedUser = "Alejandro Santoyo";
   }
 }

@@ -1,0 +1,47 @@
+<div class="row">
+    <div class="col-4">
+        <strong>student name:</strong> {{studentName}} => {{studentName | uppercase}}
+    </div>
+    <div class="col-4">
+        <strong>student address:</strong> {{studentAddress}} => {{studentAddress | lowercase}}
+    </div>
+    <div class="col-4">
+        <strong>title case student address:</strong> {{studentAddress | titlecase}}
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-4">
+        <strong>tuition cost:</strong> {{tuitionCost}} => {{tuitionCost | number:'1.2-2'}}
+    </div>
+    <div class="col-4">
+        <strong>roll numbers:</strong> {{rollNoList}} => {{rollNoList | slice:0:5}}
+    </div>
+    <div class="col-4">
+        <strong>roll numbers (last 4):</strong> {{rollNoList | slice:5:9}}
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-4">
+        <strong>student object:</strong> {{studentObject}}
+    </div>
+    <div class="col-4">
+        <strong>Student Object (JSON):</strong> {{studentObject | json}}
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-3">
+        <strong>Current Date:</strong> {{currentDate | date}}
+    </div>
+    <div class="col-3">
+        <strong>dd-MM-yy:</strong> {{currentDate | date:'dd-MM-yy'}}
+    </div>
+    <div class="col-3">
+        <strong>dd-MMM-yyyy:</strong> {{currentDate | date:'dd-MMM-yyyy'}}
+    </div>
+    <div class="col-3">
+        <strong>dd-MMMM-yyyy:</strong> {{currentDate | date:'dd-MMMM-yyyy'}}
+    </div>
+</div>

@@ -10,6 +10,7 @@ import { SignalBasic } from './components/signal-basic/signal-basic';
 import { SignalForm } from './components/signal-form/signal-form';
 import { GetAPIex } from './components/get-apiex/get-apiex';
 import { ClientCRUD } from './components/client-crud/client-crud';
+import { PipeEx } from './components/pipe-ex/pipe-ex';
 
 export const routes: Routes = [
     {
@@ -56,6 +57,10 @@ export const routes: Routes = [
     {
         path:'client-CRUD',
         component: ClientCRUD
+    },
+    {
+        path:'pipe-example',
+        component: PipeEx
     },
     {
         path:'**',
